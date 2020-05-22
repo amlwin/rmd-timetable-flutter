@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:rmd_timetable/data/timetable_local_data_source.dart';
-import 'package:rmd_timetable/data/timetable_remote_data_source.dart';
-import 'package:rmd_timetable/models/state.dart';
+import 'package:rmd_timetable/data/entities/state_entity.dart';
+import 'package:rmd_timetable/data/models/state.dart';
+import 'package:rmd_timetable/data/repositories/timetable_local_data_source.dart';
+import 'package:rmd_timetable/data/repositories/timetable_remote_data_source.dart';
 import 'package:rmd_timetable/service_locator.dart';
 
 class TimetableRepository with ChangeNotifier {
@@ -14,11 +15,12 @@ class TimetableRepository with ChangeNotifier {
 //    this.notifyListeners();
 //  }
 
-  Future<List<StateResponse>> getStateList() async {
+  Future<List<StateEntity>> getStateList() async {
     final List<StateResponse> apiResponse =
-        await remoteDataSource.getStateList();
+    await remoteDataSource.getStateList();
 
-    //localDataSource.saveStateList(apiResponse);
-    return apiResponse;
+    localDataSource.saveStateList(apiResponse);
+
+    return localDataSource.getAllState();
   }
 }

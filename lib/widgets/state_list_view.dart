@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:rmd_timetable/models/state.dart';
+import 'package:rmd_timetable/data/entities/state_entity.dart';
 
 class StateListView extends StatelessWidget {
   final int itemCount;
   final Function onTap;
-  final List<StateResponse> states;
+  final List<StateEntity> states;
 
   StateListView({this.itemCount, this.onTap, this.states});
 
@@ -14,7 +14,8 @@ class StateListView extends StatelessWidget {
         itemCount: itemCount,
         itemBuilder: (context, index) {
           return ListTile(
-            title: Text(states[index].nameMmUni),
+            key: Key(states[index].id),
+            title: Text(states[index].name),
             onTap: onTap,
           );
         });

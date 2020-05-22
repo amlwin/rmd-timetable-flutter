@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:rmd_timetable/models/state.dart';
+import 'package:rmd_timetable/data/entities/state_entity.dart';
 import 'package:rmd_timetable/vm/chooser_view_model.dart';
 import 'package:rmd_timetable/widgets/state_list_view.dart';
 
@@ -62,7 +62,7 @@ class _ChooserSheetState extends State<ChooserSheet> {
                       ),
                       onTap: () {},
                       states:
-                          context.select<ChooserViewModel, List<StateResponse>>(
+                      context.select<ChooserViewModel, List<StateEntity>>(
                               (value) => value.stateList),
                     ))
         ],

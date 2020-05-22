@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:rmd_timetable/models/state.dart';
+import 'package:rmd_timetable/data/models/state.dart';
 
 class TimetableRemoteDataSource {
 

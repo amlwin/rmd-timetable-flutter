@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:rmd_timetable/data/timetable_repository.dart';
-import 'package:rmd_timetable/models/state.dart';
+import 'package:rmd_timetable/data/entities/state_entity.dart';
+import 'package:rmd_timetable/data/repositories/timetable_repository.dart';
 import 'package:rmd_timetable/service_locator.dart';
 
 class ChooserViewModel with ChangeNotifier {
@@ -9,9 +9,9 @@ class ChooserViewModel with ChangeNotifier {
 
   bool get loading => _loading;
 
-  List<StateResponse> _stateList = [];
+  List<StateEntity> _stateList = [];
 
-  List<StateResponse> get stateList => _stateList;
+  List<StateEntity> get stateList => _stateList;
 
   void loadStateList() {
     _getStateListFromApi();
